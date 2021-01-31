@@ -27,6 +27,7 @@ const item = {
 const IndexPage = ({data: { page, tag }}) => {
   return (
     <>
+
       <SEO title="Home" />
       <motion.section
         variants={container}
@@ -42,7 +43,7 @@ const IndexPage = ({data: { page, tag }}) => {
 
           {page.edges.map(({ node }, i) => {
             return (
-                <Card name={node.name} image={node.recipePic}/>
+                <Card name={node.name} image={node.recipePic} time={node.preparationTime} tags={node.tag.title} />
             )
           })}
 
@@ -87,6 +88,11 @@ query IndexPageQuery {
           fluid(imgixParams: {auto: "compress", sharp: 10, h: "390", w: "740", fit: "fillmax", crop: "center" }) {
             ...GatsbyDatoCmsFluid
           }
+        }
+        preparationTime
+        ingredients
+        tag {
+          title
         }
       }
     }

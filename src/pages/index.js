@@ -2,6 +2,8 @@ import React from "react"
 import SEO from "../components/seo"
 import Card from "../components/card"
 import { motion } from 'framer-motion'
+import Img from "gatsby-image"
+
 
 const duration = 0.35
 
@@ -40,7 +42,7 @@ const IndexPage = ({data: { page, tag }}) => {
 
           {page.edges.map(({ node }, i) => {
             return (
-                <Card name={node.name} />
+                <Card name={node.name} image={node.recipePic}/>
             )
           })}
 
@@ -79,6 +81,13 @@ query IndexPageQuery {
       node { 
         name
         slug
+        recipePic {
+          url
+          alt
+          fluid(imgixParams: {auto: "compress", sharp: 10, h: "390", w: "740", fit: "fillmax", crop: "center" }) {
+            ...GatsbyDatoCmsFluid
+          }
+        }
       }
     }
   }

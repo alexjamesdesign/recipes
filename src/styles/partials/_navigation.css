@@ -82,7 +82,7 @@ Navigation
 
 .navigation-button.is-active {
 	@apply
-		bg-blue-300;
+	bg-blue-300;
 }
 
 .navigation-button.is-active .navigation-button__line-1 {
@@ -154,9 +154,9 @@ Navigation
 
 .navigation-wrapper__link  {
   @apply
-  	text-black
+  	text-green-DEFAULT
   	block
   	py-1
-  	px-1;
-
+	px-1
+	text-white;
 }

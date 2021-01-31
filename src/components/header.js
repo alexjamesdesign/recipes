@@ -5,28 +5,19 @@ import { motion } from 'framer-motion'
 import Nav from '../components/nav'
 
 const Header = ({ siteTitle }) => (
-  <header className="py-8 md:py-16">
+  <header>
     
-    <div className="container">
-      <div className="flex flex-wrap items-center mb-4">
-        <motion.button
-          className="w-5 h-5 mr-3 block bg-black rounded"
-          animate={{ rotate: 180 }}
-          transition={{
-            loop: Infinity,
-            duration: 2,
-            ease: "anticipate"
-          }}
-        />
-
-        <Link className="font-bold block text-lg md:text-xl inline-block" to="/">
-          {siteTitle}
-        </Link>
+    <div className="bg-black mb-4">
+      <div className="container mb-9 block">
+        <div className="flex flex-wrap items-end justify-between">
+          <p className="font-anton text-5xl text-white pb-3">Recipes.</p>
+          <div className="flex items-end">
+            <Nav className="text-white pb-3 block" />
+          </div>
+        </div>
       </div>
-
-      <Nav />
-
     </div>
+
   </header>
 )
 

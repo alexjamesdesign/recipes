@@ -1,5 +1,6 @@
 import React from "react"
 import SEO from "../components/seo"
+import Card from "../components/card"
 import { motion } from 'framer-motion'
 
 const duration = 0.35
@@ -32,22 +33,16 @@ const IndexPage = ({data: { page, tag }}) => {
         className="container"
       >
         <motion.div 
-          className="content"
+          className="card-container w-full flex"
           variants={item}
           transition="easeInOut"
         >
-          <p className="text-lg md:text-xl pl-3 border-l-2 border-black">An opinionated starter for Gatsby v2 with TailwindCSS, PostCSS and Framer Motion page transitions.</p>
-          <div className="repeater-wrapper">
-              <h1>Test</h1>
-              <p>{page.name}</p>
-          </div>
 
           {page.edges.map(({ node }, i) => {
             return (
-              <p>{node.name} Noms</p>
+                <Card name={node.name} />
             )
           })}
-
 
         </motion.div> 
 

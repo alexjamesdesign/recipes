@@ -16,3 +16,12 @@
   font-weight: 700;
   font-style: bold;
 }
+
+@font-face {
+  font-family: 'Anton';
+  src: url('../fonts/anton-regular.woff') format('woff'),
+      url('../fonts/anton-regular.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}

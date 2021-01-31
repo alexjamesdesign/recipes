@@ -17,6 +17,9 @@ module.exports = {
           '"Courier New"',
           'monospace',
         ],
+        anton: [
+          'Anton',
+        ],
       },
     }
   },

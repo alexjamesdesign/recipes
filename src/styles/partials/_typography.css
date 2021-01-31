@@ -8,7 +8,7 @@ h1, h2, h3, h4, h5, h6 {
     p-0
     mb-6
 		leading-tight
-		font-bold;
+    font-anton antialiased;
 }
 
 h1 {

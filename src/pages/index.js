@@ -21,7 +21,7 @@ const item = {
   },
 }
 
-const IndexPage = () => {
+const IndexPage = ({data: { page, tag }}) => {
   return (
     <>
       <SEO title="Home" />
@@ -37,7 +37,19 @@ const IndexPage = () => {
           transition="easeInOut"
         >
           <p className="text-lg md:text-xl pl-3 border-l-2 border-black">An opinionated starter for Gatsby v2 with TailwindCSS, PostCSS and Framer Motion page transitions.</p>
-        </motion.div>
+          <div className="repeater-wrapper">
+              <h1>Test</h1>
+              <p>{page.name}</p>
+          </div>
+
+          {page.edges.map(({ node }, i) => {
+            return (
+              <p>{node.name} Noms</p>
+            )
+          })}
+
+
+        </motion.div> 
 
         <motion.div 
           className="content"
@@ -58,9 +70,29 @@ const IndexPage = () => {
           
           <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </motion.div>
-      </motion.section>
+      </motion.section> 
     </>
   )
 }
 
 export default IndexPage
+
+export const query = graphql`
+query IndexPageQuery {
+  page: allDatoCmsRecipe {
+    edges {
+      node { 
+        name
+        slug
+      }
+    }
+  }
+  tag: allDatoCmsTag {
+    edges {
+      node { 
+        title 
+      }
+    }
+  }
+}
+`

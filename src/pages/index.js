@@ -33,7 +33,7 @@ const IndexPage = ({data: { page, tag }}) => {
         className="container"
       >
         <motion.div 
-          className="card-container w-full flex"
+          className="card-container w-full flex space-x-4"
           variants={item}
           transition="easeInOut"
         >

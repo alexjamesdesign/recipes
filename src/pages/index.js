@@ -20,7 +20,7 @@ const IndexPage = ({data: { page, tag }}) => {
 
             {tag.edges.map(({ node }, i) => {
               return (
-                  <Link to="/blog" className="block">{node.title}</Link>
+                  <Link to="/blog" className="block" key={i}>{node.title}</Link>
               )
             })}
 

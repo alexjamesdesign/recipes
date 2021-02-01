@@ -12,7 +12,7 @@ const Header = ({ siteTitle }) => (
     <div className="bg-black mb-4">
       <div className="container mb-9 block">
         <div className="flex flex-wrap items-end justify-between">
-          <p className="font-anton text-5xl text-white pb-3 period flex items-center"><CgBowl className="mr-2 mt-2" /> Recipes</p>
+          <Link to="/"><p className="font-anton text-5xl text-white pb-3 period flex items-center"><CgBowl className="mr-2 mt-2" /> Recipes</p></Link>
           <div className="flex items-end">
             <Nav className="text-white pb-3 block" />
           </div>

@@ -3,75 +3,50 @@ import SEO from "../components/seo"
 import Card from "../components/card"
 import { motion } from 'framer-motion'
 import Img from "gatsby-image"
+import { Link } from "gatsby"
 
-const duration = 0.35
-
-const container = {
-  visible: {
-    transition: {
-      when: 'beforeChildren',
-      staggerChildren: 0.2,
-      delayChildren: duration,
-    },
-  },
-}
-
-const item = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
-}
 
 const IndexPage = ({data: { page, tag }}) => {
   return (
     <>
 
       <SEO title="Home" />
-      <motion.section
-        variants={container}
-        initial="hidden" 
-        animate="visible"
-        className="container"
-      >
-        <motion.div 
-          className="featured-section w-full bg-gray-200 p-6"
-          variants={item}
-          transition="easeInOut"
-        >
-          <h1 className="w-full text-5xl period">Featured</h1>
+      <section className="container flex space-x-4">
+        <section className="sidebar w-1/3">
 
-          <div className="card-container w-full flex space-x-4">
-            {page.edges.map(({ node }, i) => {
+          <div className="sidebar w-full bg-gray-200 p-6">
+
+            <h1 className="w-full text-5xl period">Tags</h1>
+
+            {tag.edges.map(({ node }, i) => {
               return (
-                  <Card name={node.name} image={node.recipePic} time={node.preparationTime} tags={node.tag.title} />
+                  <Link to="/blog" className="block">{node.title}</Link>
               )
             })}
+
           </div>
 
-        </motion.div> 
+        </section>
 
-        <motion.div 
-          className="content"
-          variants={item}
-          transition="easeInOut"
-        >
-          <hr className="block my-8" />
-        </motion.div>
+        <section className="main-right w-2/3">
+          <div className="featured-section w-full bg-gray-200 p-6">
+            <h1 className="w-full text-5xl period">Featured</h1>
 
-        <motion.div 
-          className="content"
-          variants={item}
-          transition="easeInOut"
-        >
-          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div className="card-container w-full flex space-x-4">
+              {page.edges.map(({ node }, i) => {
+                return (
+                  <div className="w-1/2 bg-white text-black p-2 border-2 border-gray-50" key={i} >
+                    <Card name={node.name} image={node.recipePic} time={node.preparationTime} tags={node.tag.title} />
+                  </div>
+                )
+              })}
+            </div>
 
-          <h2>Lorem ipsum dolor sit amet</h2>
-          
-          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </motion.div>
-      </motion.section> 
+          </div>
+
+        </section> 
+
+      </section> 
     </>
   )
 }
@@ -96,6 +71,7 @@ query IndexPageQuery {
         ingredients
         tag {
           title
+          slug
         }
       }
     }

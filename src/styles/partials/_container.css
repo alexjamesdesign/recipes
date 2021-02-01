@@ -3,5 +3,5 @@
         mx-auto
         px-8;
 
-    max-width: theme('screens.lg');
+    max-width: theme('screens.xl');
 }

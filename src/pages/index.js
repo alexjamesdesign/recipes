@@ -4,7 +4,6 @@ import Card from "../components/card"
 import { motion } from 'framer-motion'
 import Img from "gatsby-image"
 
-
 const duration = 0.35
 
 const container = {

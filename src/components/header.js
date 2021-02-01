@@ -3,6 +3,8 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import { motion } from 'framer-motion'
 import Nav from '../components/nav'
+import { CgBowl } from "@react-icons/all-files/cg/CgBowl";
+
 
 const Header = ({ siteTitle }) => (
   <header>
@@ -10,7 +12,7 @@ const Header = ({ siteTitle }) => (
     <div className="bg-black mb-4">
       <div className="container mb-9 block">
         <div className="flex flex-wrap items-end justify-between">
-          <p className="font-anton text-5xl text-white pb-3 period">Recipes</p>
+          <p className="font-anton text-5xl text-white pb-3 period flex items-center"><CgBowl className="mr-2 mt-2" /> Recipes</p>
           <div className="flex items-end">
             <Nav className="text-white pb-3 block" />
           </div>

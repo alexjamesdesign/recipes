@@ -7,6 +7,7 @@ a {
 	@apply transition duration-300;
 }
 
+
 [class*='transition'] {
 	@apply duration-300;
 }

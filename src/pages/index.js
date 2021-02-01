@@ -16,6 +16,7 @@ const container = {
     },
   },
 }
+
 const item = {
   hidden: { y: 20, opacity: 0 },
   visible: {
@@ -36,16 +37,19 @@ const IndexPage = ({data: { page, tag }}) => {
         className="container"
       >
         <motion.div 
-          className="card-container w-full flex space-x-4"
+          className="featured-section w-full bg-gray-200 p-6"
           variants={item}
           transition="easeInOut"
         >
+          <h1 className="w-full text-5xl period">Featured</h1>
 
-          {page.edges.map(({ node }, i) => {
-            return (
-                <Card name={node.name} image={node.recipePic} time={node.preparationTime} tags={node.tag.title} />
-            )
-          })}
+          <div className="card-container w-full flex space-x-4">
+            {page.edges.map(({ node }, i) => {
+              return (
+                  <Card name={node.name} image={node.recipePic} time={node.preparationTime} tags={node.tag.title} />
+              )
+            })}
+          </div>
 
         </motion.div> 
 

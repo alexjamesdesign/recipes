@@ -10,7 +10,7 @@ const Header = ({ siteTitle }) => (
     <div className="bg-black mb-4">
       <div className="container mb-9 block">
         <div className="flex flex-wrap items-end justify-between">
-          <p className="font-anton text-5xl text-white pb-3">Recipes.</p>
+          <p className="font-anton text-5xl text-white pb-3 period">Recipes</p>
           <div className="flex items-end">
             <Nav className="text-white pb-3 block" />
           </div>

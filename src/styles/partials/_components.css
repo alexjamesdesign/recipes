@@ -1,0 +1,5 @@
+.period::after {
+    content:".";
+    @apply text-green-DEFAULT;
+    @apply pl-1;
+}

@@ -45,7 +45,7 @@ export default recipePage
 
 export const query = graphql`
 query RecipePageQuery {
-  recipe: datoCmsRecipe(filter: {slug: {eq: "chicken-katsu-curry"}}) {
+  recipe: datoCmsRecipe(slug: {eq: "chicken-katsu-curry"}) {
     name
     slug
     recipePic {

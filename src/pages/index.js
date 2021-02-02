@@ -1,4 +1,5 @@
 import React from "react"
+import Footer from "../components/footer"
 import SEO from "../components/seo"
 import Card from "../components/card"
 import { motion } from 'framer-motion'
@@ -49,6 +50,8 @@ const IndexPage = ({data: { page, tag }}) => {
         </section> 
 
       </section> 
+
+      <Footer borderColor="border-white" backToTopButton />
     </>
   )
 }

@@ -1,4 +1,5 @@
 import React from "react"
+import Footer from "../components/footer"
 import SEO from "../components/seo"
 import { motion } from 'framer-motion'
 import Img from "gatsby-image"
@@ -52,6 +53,8 @@ const recipePage = ({data: { recipe, tag }}) => {
             </section> 
 
         </section>
+
+        <Footer borderColor="border-white" backToTopButton />
     </>
   )
 }

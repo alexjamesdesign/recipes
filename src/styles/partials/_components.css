@@ -8,6 +8,7 @@
     @apply text-2xl;
     @apply font-anton antialiased;
     @apply pb-3;
+    @apply pt-3;
 }
 
 .ingredients-wysiwyg ul {
@@ -24,6 +25,7 @@
     @apply text-2xl;
     @apply font-anton antialiased;
     @apply pb-3;
+    @apply pt-3;
 }
 
 .method-wysiwyg ol {

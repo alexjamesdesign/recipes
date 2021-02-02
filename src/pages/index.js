@@ -32,11 +32,13 @@ const IndexPage = ({data: { page, tag }}) => {
           <div className="featured-section w-full bg-gray-200 p-6">
             <h1 className="w-full text-5xl period">Featured</h1>
 
-            <div className="card-container w-full flex space-x-4">
+            <div className="card-container w-full flex flex-wrap">
               {page.edges.map(({ node }, i) => {
                 return (
-                  <div className="w-1/2 bg-white text-black p-2 border-2 border-gray-50" key={i} >
-                    <Card name={node.name} image={node.recipePic} time={node.preparationTime} tags={node.tag.title} />
+                  <div className="pr-4 pb-4 w-1/2" key={i} >
+                    <div className="w-full bg-white text-black p-2 border-2 border-gray-50" key={i} >
+                      <Card name={node.name} image={node.recipePic} time={node.preparationTime} tags={node.tag.title} />
+                    </div>
                   </div>
                 )
               })}

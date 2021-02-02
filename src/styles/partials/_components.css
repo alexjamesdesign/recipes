@@ -3,3 +3,35 @@
     @apply text-green-DEFAULT;
     @apply pl-1;
 }
+
+.ingredients-wysiwyg p{
+    @apply text-2xl;
+    @apply font-anton antialiased;
+    @apply pb-3;
+}
+
+.ingredients-wysiwyg ul {
+    @apply list-disc;
+    @apply list-outside;
+    @apply pl-4;
+}
+
+.ingredients-wysiwyg ul li {
+    @apply py-2;
+}
+
+.method-wysiwyg p {
+    @apply text-2xl;
+    @apply font-anton antialiased;
+    @apply pb-3;
+}
+
+.method-wysiwyg ol {
+    @apply list-decimal;
+    @apply list-outside;
+    @apply pl-8;
+}
+
+.method-wysiwyg li {
+    @apply py-2;
+}

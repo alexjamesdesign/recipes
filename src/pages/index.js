@@ -12,8 +12,8 @@ const IndexPage = ({data: { page, tag }}) => {
     <>
 
       <SEO title="Home" />
-      <section className="container flex space-x-4">
-        <section className="sidebar w-1/3">
+      <section className="container md:flex md:space-x-4">
+        <section className="sidebar md:w-1/3">
 
           <div className="sidebar w-full bg-gray-200 p-6">
 
@@ -29,14 +29,14 @@ const IndexPage = ({data: { page, tag }}) => {
 
         </section>
 
-        <section className="main-right w-2/3">
+        <section className="main-right md:w-2/3">
           <div className="featured-section w-full bg-gray-200 p-6">
             <h1 className="w-full text-5xl period">Featured</h1>
 
             <div className="card-container w-full flex flex-wrap">
               {page.edges.map(({ node }, i) => {
                 return (
-                  <div className="pr-4 pb-4 w-1/2" key={i} >
+                  <div className="pr-4 pb-4 w-full sm:w-1/2" key={i} >
                     <div className="w-full bg-white text-black p-2 border-2 border-gray-50" key={i} >
                       <Card name={node.name} image={node.recipePic} time={node.preparationTime} tags={node.tag.title} />
                     </div>

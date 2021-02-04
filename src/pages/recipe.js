@@ -12,9 +12,9 @@ const recipePage = ({data: { recipe, tag }}) => {
     <>
 
     <SEO title="Home" />
-        <section className="container flex space-x-4">
+        <section className="container md:flex md:space-x-4">
 
-            <section className="sidebar w-1/3">
+            <section className="sidebar md:w-1/3">
 
                 <div className="sidebar w-full bg-gray-200 p-6">
 
@@ -25,7 +25,7 @@ const recipePage = ({data: { recipe, tag }}) => {
 
             </section>
 
-            <section className="main-right w-2/3">
+            <section className="main-right mt-6 md:mt-0 md:w-2/3">
 
                 <div className="featured-section w-full bg-gray-200 p-6">
 

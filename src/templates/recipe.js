@@ -1,9 +1,7 @@
 import React from "react"
 import Footer from "../components/footer"
 import SEO from "../components/seo"
-import { motion } from 'framer-motion'
 import Img from "gatsby-image"
-import { Link } from "gatsby"
 import { CgTime } from "@react-icons/all-files/cg/CgTime";
 import { CgTag } from "@react-icons/all-files/cg/CgTag";
 

@@ -2,8 +2,6 @@ import React from "react"
 import Footer from "../components/footer"
 import SEO from "../components/seo"
 import Card from "../components/card"
-import { motion } from 'framer-motion'
-import Img from "gatsby-image"
 import { Link } from "gatsby"
 
 
@@ -36,9 +34,9 @@ const IndexPage = ({data: { page, tag }}) => {
             <div className="card-container w-full flex flex-wrap">
               {page.edges.map(({ node }, i) => {
                 return (
-                  <div className="pr-4 pb-4 w-full sm:w-1/2" key={i} >
+                  <div className="pr-4 pb-4 w-full sm:w-1/2" key={i}>
                     <div className="w-full bg-white text-black p-2 border-2 border-gray-50" key={i} >
-                      <Card name={node.name} image={node.recipePic} time={node.preparationTime} tags={node.tag.title} />
+                      <Card slug={node.slug} name={node.name} image={node.recipePic} time={node.preparationTime} tags={node.tag.title} />
                     </div>
                   </div>
                 )

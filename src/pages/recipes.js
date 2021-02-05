@@ -1,13 +1,11 @@
 import React from "react"
 import Footer from "../components/footer"
 import SEO from "../components/seo"
-import { motion } from 'framer-motion'
 import Img from "gatsby-image"
-import { Link } from "gatsby"
 import { CgTime } from "@react-icons/all-files/cg/CgTime";
 import { CgTag } from "@react-icons/all-files/cg/CgTag";
 
-const recipePage = ({data: { recipe, tag }}) => {
+const recipesPage = ({data: { recipe, tag }}) => {
   return (
     <>
 
@@ -59,7 +57,7 @@ const recipePage = ({data: { recipe, tag }}) => {
   )
 }
 
-export default recipePage
+export default recipesPage
 
 export const query = graphql`
 query RecipePageQuery {

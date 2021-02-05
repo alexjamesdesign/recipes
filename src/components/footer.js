@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import { motion } from 'framer-motion'
 import Nav from '../components/nav'
 import { CgBowl } from "@react-icons/all-files/cg/CgBowl";
 

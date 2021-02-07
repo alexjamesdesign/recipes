@@ -36,18 +36,18 @@ const recipesPage = ({data: { recipe, tag }, item, container}) => {
       <section className="container md:flex md:space-x-4">
         <section className="sidebar md:w-1/3">
 
-          <div className="sidebar w-full bg-gray-200 p-6">
+          <div className="w-full bg-gray-200 p-6">
 
             <h1 className="w-full text-5xl period">Tags</h1>
             <div className="flex space-x-4 radius-4">
               {tag.edges.map(({ node }, i) => {
                 return (
                   
-                    <Link to="/blog" className="h-15 w-1/2 relative flex justify-center align-middle" key={i}>
+                    <Link to={`/tags/${node.slug}`} activeClassName="is-active" className="h-15 w-1/2 relative flex justify-center align-middle tag-link" key={i}>
                       <div className="h-15 text-white absolute z-10 pt-6 font-anton">
                         
                           {node.title}
-                       
+                      
                       </div>
                       <Img fluid={node.image.fluid} className="w-full absolute h-full rounded-md" alt={node.image.alt} />
                     </Link>

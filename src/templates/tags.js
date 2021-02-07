@@ -28,7 +28,7 @@ export const itemIn = {
   transition: { duration: 1.3 }
 }
 
-const tagsPage = ({data: { recipe, tag }, item, container}) => {
+const tagsTemplate = ({data: { recipe, tag }, item, container}) => {
   return (
     <>
 
@@ -43,7 +43,7 @@ const tagsPage = ({data: { recipe, tag }, item, container}) => {
               {tag.edges.map(({ node }, i) => {
                 return (
                   
-                    <Link to="/blog" className="h-15 w-1/2 relative flex justify-center align-middle" key={i}>
+                    <Link to={`/tags/${node.slug}`} activeClassName="is-active" className="h-15 w-1/2 relative flex justify-center align-middle tag-link" key={i}>
                       <div className="h-15 text-white absolute z-10 pt-6 font-anton">
                         
                           {node.title}
@@ -95,11 +95,11 @@ const tagsPage = ({data: { recipe, tag }, item, container}) => {
   )
 }
 
-export default tagsPage
+export default tagsTemplate
 
 export const query = graphql`
-query TagsPageQuery {
-  recipe: allDatoCmsRecipe (filter: {tag: {slug: {eq: "asian"}}}) {
+query TagsTemplateQuery($slug: String!) {
+  recipe: allDatoCmsRecipe (filter: {tag: {slug: {eq: $slug}}}) {
     edges {
       node { 
         name

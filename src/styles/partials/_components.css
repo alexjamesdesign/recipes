@@ -37,3 +37,9 @@
 .method-wysiwyg li {
     @apply py-2;
 }
+
+.tag-link.is-active {
+    @apply border-white;
+    @apply border-2;
+    @apply rounded-lg;
+}

@@ -99,7 +99,7 @@ export default tagsPage
 
 export const query = graphql`
 query TagsPageQuery {
-  recipe: allDatoCmsRecipe (filter: {tag: {elemMatch: {slug: {eq: "asian"}}}}) {
+  recipe: allDatoCmsRecipe (filter: {tag: {slug: {eq: "asian"}}}) {
     edges {
       node { 
         name

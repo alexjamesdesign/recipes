@@ -15,8 +15,10 @@ const IndexPage = ({data: { page, tag, hero }}) => {
 
         <section className="hero w-full bg-gray-200 relative">
           <Img fluid={hero.image.fluid} className="absolute top-0" /> 
-          <div className="flex flex-col-reverse justify-center text-align-right h-full absolute top-0 w-full">
-            <p className="text-white font-anton text-5xl text-right pr-20 left-20 top-0">{hero.heroText}</p>
+          <div className="absolute top-0 left-0 w-full h-full">
+            <div className="flex items-center justify-end w-full h-full">
+              <p className="period text-black font-anton text-5xl w-1/2">{hero.heroText}</p>
+            </div>
           </div>
         </section>
 
@@ -83,11 +85,12 @@ query IndexPageQuery {
     image {
       url
       alt
-      fluid(imgixParams: {auto: "compress", sharp: 10, h: "390", w: "740", fit: "fillmax", crop: "center" }) {
+      fluid(imgixParams: {h: "440", w: "1216", fit: "fillmax", crop: "center" }) {
         ...GatsbyDatoCmsFluid
       }
     }
-    heroText 
+    heroText
+    heroSubText 
   }
 }
 `

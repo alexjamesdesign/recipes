@@ -36,7 +36,7 @@ const tagsTemplate = ({data: { recipe, tag }, item, container}) => {
       <section className="container md:flex md:space-x-4">
         <section className="sidebar md:w-1/3">
 
-          <div className="sidebar w-full bg-gray-200 p-6">
+          <div className="sidebar w-full bg-gray-200 p-2 md:p-6">
 
             <h1 className="w-full text-5xl period">Tags</h1>
             <div className="flex space-x-4 radius-4">
@@ -60,7 +60,7 @@ const tagsTemplate = ({data: { recipe, tag }, item, container}) => {
         </section>
 
         <section className="main-right md:w-2/3">
-          <div className="featured-section w-full bg-gray-200 p-6">
+          <div className="featured-section w-full bg-gray-200 p-2 md:p-6">
             <h1 className="w-full text-5xl period">Featured</h1>
 
             <motion.div 

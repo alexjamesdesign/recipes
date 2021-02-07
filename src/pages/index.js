@@ -17,13 +17,13 @@ const IndexPage = ({data: { page, tag, hero }}) => {
           <Img fluid={hero.image.fluid} className="absolute top-0" /> 
           <div className="absolute top-0 left-0 w-full h-full">
             <div className="flex items-center justify-end w-full h-full">
-              <p className="period text-black font-anton text-5xl w-1/2">{hero.heroText}</p>
+              <p className="period text-black font-anton text-4xl md:text-5xl w-full md:w-1/2">{hero.heroText}</p>
             </div>
           </div>
         </section>
 
         <section className="main-right w-full">
-          <div className="featured-section w-full bg-gray-200 p-6">
+          <div className="featured-section w-full bg-gray-200 p-2 md:p-6">
             <h1 className="w-full text-5xl period">Featured</h1>
 
             <div className="card-container w-full flex flex-wrap">

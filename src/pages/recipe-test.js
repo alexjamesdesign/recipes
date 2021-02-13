@@ -5,6 +5,11 @@ import Img from "gatsby-image"
 import { CgTime } from "@react-icons/all-files/cg/CgTime";
 import { CgTag } from "@react-icons/all-files/cg/CgTag";
 
+
+const stepCount = () => {
+    this.setState({ count: this.state.count + 1 })
+}
+
 const recipePage = ({data: { recipe, tag }}) => {
   return (
     <>
@@ -25,7 +30,7 @@ const recipePage = ({data: { recipe, tag }}) => {
 
             <section className="main-right mt-6 md:mt-0 md:w-2/3">
 
-                <div className="featured-section w-full bg-gray-200 p-6">
+                <div className="featured-section w-full md:p-6">
 
                     <h1 className="w-full text-5xl period">{recipe.name}</h1>
                     
@@ -34,26 +39,27 @@ const recipePage = ({data: { recipe, tag }}) => {
                         <p className="flex items-center"><CgTag className="mr-2" /> {recipe.tag.title}</p> 
                     </div>
 
-                    <div className="recipe-pics bg-gray-100">
+                    <div className="recipe-pics">
                         
                         <Img fluid={recipe.recipePic.fluid} className="w-full h-30" alt={recipe.recipePic.alt} />
 
                     </div>
 
-                    <div className="recipe-method bg-gray-200 py-2">
+                    <div className="recipe-method py-2 mt-2">
 
-                        <h1 className="w-full text-5xl period">Method</h1>
+                        <h1 className="w-full text-5xl pt-2 period">Method</h1>
+
                         
                         {
                             recipe.directions.map((step) => (
-                                <div key={step.id} >
+                                <div key={step.id} className="bg-gray-200 my-2">
                                     {
                                     step.model.apiKey === 'step' &&
             
-                                        <div className="pt-4 w-full flex">
-                                            <Img fluid={step.stepPic.fluid} key={step.stepPic.title} alt={step.stepPic.alt} className="w-1/4" />
-                                            <div className="py-3">
-                                                <p>Step One</p>
+                                        <div className="p-4 w-full md:flex">
+                                            <Img fluid={step.stepPic.fluid} key={step.stepPic.title} alt={step.stepPic.alt} className="md:w-48 md:mr-4" />
+                                            <div className="counting py-3">
+                                                <p className="p-3 mb-3 bg-gray-400 w-12 h-12 text-center rounded-full font-bold">1</p>
                                                 <p>{step.stepText}</p>
                                             </div>
                                         </div>

@@ -44,7 +44,7 @@ const tagsTemplate = ({data: { recipe, tag }, item, container}) => {
                 return (
                   
                     <Link to={`/tags/${node.slug}`} activeClassName="is-active" className="h-15 w-1/2 relative flex justify-center align-middle tag-link" key={i}>
-                      <div className="h-15 text-white absolute z-10 pt-6 font-anton">
+                      <div className="h-15 text-white absolute z-10 pt-3 font-anton">
                         
                           {node.title}
                        

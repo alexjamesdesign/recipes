@@ -17,9 +17,9 @@ const recipeTemplate = ({data: { recipe, tag }}) => {
             <h1 className="w-full text-5xl period md:hidden">{recipe.name}</h1>
 
             <div className="recipe-pics md:hidden">
-                    
+                  { recipe.recipePic && ( 
                   <Img fluid={recipe.recipePic.fluid} className="w-full h-30" alt={recipe.recipePic.alt} />
-
+                  )}
                   <div className="recipe-stats bg-gray-300 p-4 my-4 flex gap-6">
                       <p className="flex items-center"><CgTime className="mr-2" /> {`${recipe.preparationTime ? recipe.preparationTime+' mins' : "No time set"}`}</p> 
                       <p className="flex items-center"><CgTag className="mr-2" /> {recipe.tag.title}</p> 
@@ -48,8 +48,9 @@ const recipeTemplate = ({data: { recipe, tag }}) => {
                 </div>
 
                 <div className="recipe-pics hidden md:block">
-                    
-                    <Img fluid={recipe.recipePic.fluid} className="w-full h-30" alt={recipe.recipePic.alt} />
+                    { recipe.recipePic && ( 
+                      <Img fluid={recipe.recipePic.fluid} className="w-full h-30" alt={recipe.recipePic.alt} />
+                    )}
 
                 </div>
 

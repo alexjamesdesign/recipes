@@ -10,9 +10,22 @@ const recipeTemplate = ({data: { recipe, tag }}) => {
     <>
 
     <SEO title="Home" />
-    <section className="container md:flex md:space-x-4">
+    <section className="container flex flex-wrap md:flex-nowrap">
 
-        <section className="sidebar md:w-1/3">
+        <section className="sidebar w-full md:w-1/3">
+
+            <h1 className="w-full text-5xl period md:hidden">{recipe.name}</h1>
+
+            <div className="recipe-pics md:hidden">
+                    
+                  <Img fluid={recipe.recipePic.fluid} className="w-full h-30" alt={recipe.recipePic.alt} />
+
+                  <div className="recipe-stats bg-gray-300 p-4 my-4 flex gap-6">
+                      <p className="flex items-center"><CgTime className="mr-2" /> {`${recipe.preparationTime ? recipe.preparationTime+' mins' : "No time set"}`}</p> 
+                      <p className="flex items-center"><CgTag className="mr-2" /> {recipe.tag.title}</p> 
+                  </div>                  
+
+            </div>
 
             <div className="sidebar w-full bg-gray-200 p-6">
 
@@ -27,14 +40,14 @@ const recipeTemplate = ({data: { recipe, tag }}) => {
 
             <div className="featured-section w-full md:p-6">
 
-                <h1 className="w-full text-5xl period">{recipe.name}</h1>
+                <h1 className="w-full text-5xl period hidden md:block">{recipe.name}</h1>
                 
-                <div className="recipe-stats bg-gray-300 p-4 my-4 flex gap-6">
+                <div className="recipe-stats bg-gray-300 p-4 my-4 flex gap-6 hidden md:flex">
                     <p className="flex items-center"><CgTime className="mr-2" /> {`${recipe.preparationTime ? recipe.preparationTime+' mins' : "No time set"}`}</p> 
                     <p className="flex items-center"><CgTag className="mr-2" /> {recipe.tag.title}</p> 
                 </div>
 
-                <div className="recipe-pics">
+                <div className="recipe-pics hidden md:block">
                     
                     <Img fluid={recipe.recipePic.fluid} className="w-full h-30" alt={recipe.recipePic.alt} />
 
@@ -44,7 +57,6 @@ const recipeTemplate = ({data: { recipe, tag }}) => {
 
                     <h1 className="w-full text-5xl pt-2 period">Method</h1>
 
-                    
                     {
                         recipe.directions.map((step) => (
                             <div key={step.id} className="bg-gray-200 my-2">
@@ -52,13 +64,17 @@ const recipeTemplate = ({data: { recipe, tag }}) => {
                                 step.model.apiKey === 'step' &&
 
                                     <div className="p-4 w-full md:flex">
+
+                                      { step.stepPic && (
                                         <Img fluid={step.stepPic.fluid} key={step.stepPic.title} alt={step.stepPic.alt} className="md:w-48 md:mr-4" />
-                                        <div className="counting py-3">
-                                            <p className="p-3 mb-3 bg-gray-400 w-12 h-12 text-center rounded-full font-bold">1</p>
-                                            <p>{step.stepText}</p>
-                                        </div>
+                                      )}
+
+                                      <div className="counting py-3">
+                                          <p className="p-3 mb-3 bg-gray-400 w-12 h-12 text-center rounded-full font-bold">1</p>
+                                          <div dangerouslySetInnerHTML={{ __html: step.stepText }}></div>
+                                      </div>
+
                                     </div>
-                                
                                 }
                             </div>
                         ))
@@ -87,7 +103,7 @@ query RecipeTemplateQuery($slug: String!) {
     recipePic {
         url
         alt
-        fluid(imgixParams: {auto: "compress", sharp: 10, h: "260", w: "752", fit: "fillmax", crop: "center" }) {
+        fluid(imgixParams: {auto: "compress", h: "520", w: "1504", fit: "fillmax", crop: "center" }) {
         ...GatsbyDatoCmsFluid
         }
     }

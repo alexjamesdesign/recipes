@@ -112,7 +112,6 @@ query TagsTemplateQuery($slug: String!) {
           }
         }
         preparationTime
-        ingredients
         tag {
           title
           slug

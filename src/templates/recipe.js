@@ -5,6 +5,13 @@ import Img from "gatsby-image"
 import { CgTime } from "@react-icons/all-files/cg/CgTime";
 import { CgTag } from "@react-icons/all-files/cg/CgTag";
 
+
+
+// let counter = 0;
+// for (let i = 0; i < storage.length; i++) {
+//   if (storage[i].status === '0') counter++;
+// }
+
 const recipeTemplate = ({data: { recipe, tag }}) => {
   return (
     <>
@@ -30,7 +37,16 @@ const recipeTemplate = ({data: { recipe, tag }}) => {
             <div className="sidebar w-full bg-gray-200 p-6">
 
                 <h1 className="w-full text-5xl period">Ingredients</h1>
-                <div className="ingredients-wysiwyg" dangerouslySetInnerHTML={{ __html: recipe.ingredients }}></div>
+
+                {
+                  recipe.ingredients.map((item) => (
+                    <ul className="ingredients">
+                      {item.model.apiKey === 'item' && 
+                        <li className="w-full" dangerouslySetInnerHTML={{ __html: `<span>${item.amount}</span> ${item.ingredientsName} `}}></li>
+                      }
+                    </ul>
+                  ))
+                }
 
             </div>
 
@@ -59,21 +75,29 @@ const recipeTemplate = ({data: { recipe, tag }}) => {
                     <h1 className="w-full text-5xl pt-2 period">Method</h1>
 
                     {
-                        recipe.directions.map((step) => (
+                        recipe.directions.map((step, i) => (
                             <div key={step.id} className="bg-gray-200 my-2">
                                 {
                                 step.model.apiKey === 'step' &&
 
-                                    <div className="p-4 w-full md:flex">
-
-                                      { step.stepPic && (
-                                        <Img fluid={step.stepPic.fluid} key={step.stepPic.title} alt={step.stepPic.alt} className="md:w-48 md:mr-4" />
-                                      )}
-
-                                      <div className="counting py-3">
-                                          <p className="p-3 mb-3 bg-gray-400 w-12 h-12 text-center rounded-full font-bold">1</p>
+                                    <div className="p-4 w-full flex flex-wrap	lg:flex-nowrap items-center">
+                                      { step.stepPic ? (
+                                      <div className="counting py-3 pr-4 w-full lg:w-3/4">
+                                          <p className="p-3 mb-3 bg-gray-400 w-12 h-12 text-center rounded-full font-bold">{ i + 1}</p>
                                           <div dangerouslySetInnerHTML={{ __html: step.stepText }}></div>
                                       </div>
+                                      ) : (
+                                        <div className="counting py-3 w-full lg:w-full">
+                                          <p className="p-3 mb-3 bg-gray-400 w-12 h-12 text-center rounded-full font-bold">1</p>
+                                          <div dangerouslySetInnerHTML={{ __html: step.stepText }}></div>
+                                        </div>
+                                      )}
+
+                                      { step.stepPic && (
+                                        <div className="w-full lg:w-1/4">
+                                          <Img fluid={step.stepPic.fluid} key={step.stepPic.title} alt={step.stepPic.alt} className="step-pic w-full" />
+                                        </div>
+                                      )}
 
                                     </div>
                                 }
@@ -109,11 +133,17 @@ query RecipeTemplateQuery($slug: String!) {
         }
     }
     preparationTime
-    ingredients
-    method
     tag {
         title
         slug
+    }
+    ingredients {
+      ... on DatoCmsItem {
+          id
+          model { apiKey }
+          ingredientsName
+          amount
+      }
     }
     directions {
       ... on DatoCmsStep {
@@ -121,7 +151,7 @@ query RecipeTemplateQuery($slug: String!) {
           model { apiKey }
           stepPic {
               title
-              fluid(maxWidth: 1600, imgixParams: { fm: "jpg", auto: "compress" }) {
+              fluid(maxWidth: 1600, imgixParams: { w: "600", h: "300", fm: "jpg", auto: "compress" }) {
               ...GatsbyDatoCmsSizes
               }
               alt

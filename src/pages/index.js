@@ -66,7 +66,6 @@ query IndexPageQuery {
           }
         }
         preparationTime
-        ingredients
         tag {
           title
           slug

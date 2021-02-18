@@ -112,7 +112,6 @@ query RecipePageQuery {
           }
         }
         preparationTime
-        ingredients
         tag {
           title
           slug

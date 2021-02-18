@@ -4,25 +4,24 @@
     @apply pl-1;
 }
 
-.ingredients-wysiwyg p{
-    @apply text-2xl;
-    @apply font-anton antialiased;
-    @apply pb-3;
-    @apply pt-3;
-}
-
-.ingredients-wysiwyg ul {
-    @apply list-disc;
-    @apply list-outside;
-    @apply pl-4;
-}
-
-.ingredients-wysiwyg ul li {
-    @apply py-2;
-}
-
 .tag-link.is-active {
     @apply border-white;
     @apply border-2;
     @apply rounded-lg;
+}
+
+.step-pic {
+    width: 100%;
+    @screen lg {
+        width: 32rem;
+    }
+}
+
+.ingredients li {
+    @apply pb-4;
+}
+
+.ingredients li span {
+    @apply text-gray-700;
+    @apply block;
 }

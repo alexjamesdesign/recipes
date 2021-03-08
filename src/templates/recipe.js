@@ -83,12 +83,12 @@ const recipeTemplate = ({data: { recipe, tag }}) => {
                                     <div className="p-4 w-full flex flex-wrap	lg:flex-nowrap items-center">
                                       { step.stepPic ? (
                                       <div className="counting py-3 pr-4 w-full lg:w-3/4">
-                                          <p className="p-3 mb-3 bg-gray-400 w-12 h-12 text-center rounded-full font-bold">{ i + 1}</p>
+                                          <p className="p-3 mb-3 bg-gray-400 w-12 h-12 text-center rounded-full font-bold">{i + 1}</p>
                                           <div dangerouslySetInnerHTML={{ __html: step.stepText }}></div>
                                       </div>
                                       ) : (
                                         <div className="counting py-3 w-full lg:w-full">
-                                          <p className="p-3 mb-3 bg-gray-400 w-12 h-12 text-center rounded-full font-bold">1</p>
+                                          <p className="p-3 mb-3 bg-gray-400 w-12 h-12 text-center rounded-full font-bold">{i + 1}</p>
                                           <div dangerouslySetInnerHTML={{ __html: step.stepText }}></div>
                                         </div>
                                       )}
@@ -128,7 +128,7 @@ query RecipeTemplateQuery($slug: String!) {
     recipePic {
         url
         alt
-        fluid(imgixParams: {auto: "compress", h: "520", w: "1504", fit: "fillmax", crop: "center" }) {
+        fluid(imgixParams: {h: "520", w: "1504", fit: "fillmax", crop: "center" }) {
         ...GatsbyDatoCmsFluid
         }
     }

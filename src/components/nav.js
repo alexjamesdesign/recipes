@@ -2,6 +2,15 @@ import React from "react"
 import { Link } from "gatsby"
 import { GoLinkExternal } from 'react-icons/go';
 
+const navItems = [
+  {
+    title: "Home",
+    url: "/"
+  },{
+    title: "Recipes",
+    url: "/recipes/"
+}]
+
 const Nav = class extends React.Component {
 
   state = { showMenu : false }
@@ -19,15 +28,11 @@ const Nav = class extends React.Component {
     <nav className="lg:flex lg:content-end lg:justify-end lg:flex-col">
       <div className={`navigation-wrapper navigation-wrapper--${menuActive} bg-black`} >
         <ul className="md:bg-red md:flex md:w-full md:flex-row md:justify-start md:items-stretch">
+          {navItems.map(({ title, url}, index) =>
           <li>
-            <Link className="navigation-wrapper__link" onClick={this.toggleMenu} activeClassName="is-active" to="/">Home</Link>
+            <Link key={index} className="navigation-wrapper__link" onClick={this.toggleMenu} activeClassName="is-active bg-white text-black" to={`${url}`}>{title}</Link>
           </li>
-          <li>
-            <Link className="navigation-wrapper__link" onClick={this.toggleMenu} activeClassName="is-active" to="/recipes">Recipes</Link>
-          </li>
-          <li>
-            <a target="_blank" rel="noreferrer noopener" onClick={this.toggleMenu} className="navigation-wrapper__link" href="https://github.com/samuelgoddard/gatsby-tailwind-motion/">Github <GoLinkExternal className="inline-block opacity-25 -mt-3px" /></a>
-          </li>
+        )}
         </ul>
       </div>
       <div aria-label="Navigation menu button" tabIndex={0} role="button" className={`${burgerActive} navigation-button`} onClick={this.toggleMenu} onKeyDown={this.toggleMenu}>

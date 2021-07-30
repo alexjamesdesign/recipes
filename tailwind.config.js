@@ -7,12 +7,14 @@ module.exports = {
   },
   theme: {
     extend: {
+      borderRadius: {
+       'xl': '1rem',
+       '2xl': '2.2rem',
+      },
       colors: {
-        green: {
-          light: '#18F851',
-          DEFAULT: '#18F851',
-          dark: '#18F851',
-        },
+        'primary': '#3A857E',
+        'secondary': '#F8F3E8',
+        'tertiary': '#FF4233',
       },
       fontFamily: {
         mono: [

@@ -25,12 +25,12 @@ const Nav = class extends React.Component {
     const menuActive = this.state.showMenu ? 'is-active' : '';
     const burgerActive = this.state.showMenu ? 'is-active' : '';
     return (     
-    <nav className="lg:flex lg:content-end lg:justify-end lg:flex-col">
-      <div className={`navigation-wrapper navigation-wrapper--${menuActive} bg-black`} >
+    <nav className="md:flex md:content-end md:justify-center md:flex-col md:pl-6">
+      <div className={`navigation-wrapper navigation-wrapper--${menuActive} bg-secondary text-black`} >
         <ul className="md:bg-red md:flex md:w-full md:flex-row md:justify-start md:items-stretch">
           {navItems.map(({ title, url}, index) =>
           <li>
-            <Link key={index} className="navigation-wrapper__link" onClick={this.toggleMenu} activeClassName="is-active bg-white text-black" to={`${url}`}>{title}</Link>
+            <Link key={index} className="px-4 py-2 text-black rounded-2xl navigation-wrapper__link" onClick={this.toggleMenu} activeClassName="is-active bg-tertiary text-white" to={`${url}`}>{title}</Link>
           </li>
         )}
         </ul>

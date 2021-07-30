@@ -1,6 +1,5 @@
 .period::after {
     content:".";
-    @apply text-green-DEFAULT;
     @apply pl-1;
 }
 
@@ -24,4 +23,9 @@
 .ingredients li span {
     @apply text-gray-700;
     @apply block;
+}
+
+.image-shadow {
+    top: 30px;
+    left: 30px;
 }

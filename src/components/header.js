@@ -8,13 +8,21 @@ import { CgBowl } from "@react-icons/all-files/cg/CgBowl";
 const Header = ({ siteTitle }) => (
   <header>
     
-    <div className="bg-black mb-4">
-      <div className="container mb-9 block">
+    <div className="mb-4">
+      <div className="container block mb-9">
         <div className="flex flex-wrap items-end justify-between">
-          <Link to="/"><p className="font-anton text-5xl text-white pb-3 period flex items-center"><CgBowl className="mr-2 mt-2" /> Recipes</p></Link>
-          <div className="flex items-end">
-            <Nav className="text-white pb-3 block" />
+
+        <div className="w-full h-40 hero">
+        
+          <div className="flex hero-left">
+            <Nav className="block pb-3 text-white" />
           </div>
+
+          <div className="hero-logo"></div>
+          <div className="hero-right"></div>
+
+        </div>
+
         </div>
       </div>
     </div>

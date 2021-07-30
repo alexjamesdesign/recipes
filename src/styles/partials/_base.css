@@ -11,3 +11,39 @@ a {
 [class*='transition'] {
 	@apply duration-300;
 }
+
+a.btn-standard {
+	@apply bg-tertiary;
+	@apply text-white;
+	@apply p-2;
+	@apply rounded-lg;
+}
+
+.hero {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.hero-logo {
+	background-image: url("../images/logo-round.svg");
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 126px;
+	height: 126px;
+}
+
+.hero-left, .hero-right {
+	height: 66px;
+	flex: 1;
+	@apply bg-secondary;
+	
+}
+
+.hero-left {
+	border-radius: 33px 0px 0px 33px;
+}
+
+.hero-right {
+	border-radius: 0px 33px 33px 0px;
+}

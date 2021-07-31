@@ -18,11 +18,14 @@
 
 .ingredients li {
     @apply pb-4;
+    @apply text-white;
+    @apply font-bold;
 }
 
 .ingredients li span {
-    @apply text-gray-700;
+    @apply text-gray-200;
     @apply block;
+    @apply font-normal;
 }
 
 .image-shadow {

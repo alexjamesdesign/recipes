@@ -19,24 +19,24 @@ const recipeTemplate = ({data: { recipe, tag }}) => {
     <SEO title="Home" />
     <section className="container flex flex-wrap md:flex-nowrap">
 
-        <section className="sidebar w-full md:w-1/3">
+        <section className="w-full sidebar md:w-1/3">
 
-            <h1 className="w-full text-5xl period md:hidden">{recipe.name}</h1>
+            <h1 className="w-full text-5xl text-primary period md:hidden">{recipe.name}</h1>
 
             <div className="recipe-pics md:hidden">
                   { recipe.recipePic && ( 
-                  <Img fluid={recipe.recipePic.fluid} className="w-full h-30" alt={recipe.recipePic.alt} />
+                  <Img fluid={recipe.recipePic.fluid} className="w-full h-30 rounded-xl" alt={recipe.recipePic.alt} />
                   )}
-                  <div className="recipe-stats bg-gray-300 p-4 my-4 flex gap-6">
+                  <div className="flex gap-6 p-4 my-4 bg-secondary rounded-xl recipe-stats">
                       <p className="flex items-center"><CgTime className="mr-2" /> {`${recipe.preparationTime ? recipe.preparationTime+' mins' : "No time set"}`}</p> 
                       <p className="flex items-center"><CgTag className="mr-2" /> {recipe.tag.title}</p> 
                   </div>                  
 
             </div>
 
-            <div className="sidebar w-full bg-gray-200 p-6">
+            <div className="w-full p-6 bg-primary sidebar rounded-xl">
 
-                <h1 className="w-full text-5xl period">Ingredients</h1>
+                <h1 className="w-full text-5xl text-white period">Ingredients</h1>
 
                 {
                   recipe.ingredients.map((item) => (
@@ -52,50 +52,50 @@ const recipeTemplate = ({data: { recipe, tag }}) => {
 
         </section>
 
-        <section className="main-right mt-6 md:mt-0 md:w-2/3">
+        <section className="mt-6 main-right md:mt-0 md:w-2/3">
 
-            <div className="featured-section w-full md:p-6">
+            <div className="w-full featured-section md:p-6">
 
-                <h1 className="w-full text-5xl period hidden md:block">{recipe.name}</h1>
+                <h1 className="hidden w-full text-5xl period md:block text-primary">{recipe.name}</h1>
                 
-                <div className="recipe-stats bg-gray-300 p-4 my-4 flex gap-6 hidden md:flex">
+                <div className="flex hidden gap-6 p-4 my-4 bg-secondary rounded-xl recipe-stats md:flex">
                     <p className="flex items-center"><CgTime className="mr-2" /> {`${recipe.preparationTime ? recipe.preparationTime+' mins' : "No time set"}`}</p> 
                     <p className="flex items-center"><CgTag className="mr-2" /> {recipe.tag.title}</p> 
                 </div>
 
-                <div className="recipe-pics hidden md:block">
+                <div className="hidden recipe-pics md:block">
                     { recipe.recipePic && ( 
-                      <Img fluid={recipe.recipePic.fluid} className="w-full h-30" alt={recipe.recipePic.alt} />
+                      <Img fluid={recipe.recipePic.fluid} className="w-full h-30 rounded-xl" alt={recipe.recipePic.alt} />
                     )}
 
                 </div>
 
-                <div className="recipe-method py-2 mt-2">
+                <div className="py-2 mt-2 recipe-method">
 
-                    <h1 className="w-full text-5xl pt-2 period">Method</h1>
+                    <h1 className="w-full pt-2 text-5xl period text-primary">Method</h1>
 
                     {
                         recipe.directions.map((step, i) => (
-                            <div key={step.id} className="bg-gray-200 my-2">
+                            <div key={step.id} className="my-2 bg-secondary rounded-xl">
                                 {
                                 step.model.apiKey === 'step' &&
 
-                                    <div className="p-4 w-full flex flex-wrap	lg:flex-nowrap items-center">
+                                    <div className="flex flex-wrap items-center w-full p-4 lg:flex-nowrap">
                                       { step.stepPic ? (
-                                      <div className="counting py-3 pr-4 w-full lg:w-3/4">
-                                          <p className="p-3 mb-3 bg-gray-400 w-12 h-12 text-center rounded-full font-bold">{i + 1}</p>
+                                      <div className="w-full py-3 pr-4 counting lg:w-3/4">
+                                          <p className="w-12 h-12 p-3 mb-3 font-bold text-center text-white rounded-full bg-tertiary">{i + 1}</p>
                                           <div dangerouslySetInnerHTML={{ __html: step.stepText }}></div>
                                       </div>
                                       ) : (
-                                        <div className="counting py-3 w-full lg:w-full">
-                                          <p className="p-3 mb-3 bg-gray-400 w-12 h-12 text-center rounded-full font-bold">{i + 1}</p>
+                                        <div className="w-full py-3 counting lg:w-full">
+                                          <p className="w-12 h-12 p-3 mb-3 font-bold text-center text-white rounded-full bg-tertiary">{i + 1}</p>
                                           <div dangerouslySetInnerHTML={{ __html: step.stepText }}></div>
                                         </div>
                                       )}
 
                                       { step.stepPic && (
                                         <div className="w-full lg:w-1/4">
-                                          <Img fluid={step.stepPic.fluid} key={step.stepPic.title} alt={step.stepPic.alt} className="step-pic w-full" />
+                                          <Img fluid={step.stepPic.fluid} key={step.stepPic.title} alt={step.stepPic.alt} className="w-full step-pic" />
                                         </div>
                                       )}
 

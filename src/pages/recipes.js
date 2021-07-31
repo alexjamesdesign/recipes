@@ -37,7 +37,7 @@ const recipesPage = ({data: { recipe, tag }, item, container}) => {
       <section className="container md:flex md:space-x-4">
         <section className="sidebar md:w-1/3">
 
-          <div className="w-full bg-gray-200 p-2 md:p-6">
+          <div className="w-full p-2 bg-secondary rounded-xl md:p-6">
             
             <Tags tagItems={tag} />
             
@@ -46,11 +46,11 @@ const recipesPage = ({data: { recipe, tag }, item, container}) => {
         </section>
 
         <section className="main-right md:w-2/3">
-          <div className="featured-section w-full bg-gray-200 p-2 md:p-6">
-            <h1 className="w-full text-5xl period">Featured</h1>
+          <div className="w-full p-2 featured-section bg-primary rounded-xl md:p-6">
+            <h1 className="w-full text-5xl text-white period">Featured</h1>
 
             <motion.div 
-              className="card-container w-full flex flex-wrap"
+              className="flex flex-wrap w-full card-container"
               variants={containerIn}
               initial="hidden"
               animate="visible"
@@ -58,11 +58,11 @@ const recipesPage = ({data: { recipe, tag }, item, container}) => {
               {recipe.edges.map(({ node }, i) => {
                 return (
                   <motion.div 
-                    className="pr-4 pb-4 w-full sm:w-1/2"
+                    className="w-full pb-4 pr-4 sm:w-1/2"
                     key={i}
                     variants={itemIn}
                   >
-                    <div className="w-full bg-white text-black p-2 border-2 border-gray-50 rounded-md" key={i} >
+                    <div className="w-full p-2 text-black bg-white border-gray-400 border-1 rounded-xl" key={i} >
                       <Card slug={node.slug} name={node.name} image={node.recipePic} time={node.preparationTime} tags={node.tag.title} />
                     </div>
                   </motion.div>

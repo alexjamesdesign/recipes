@@ -7,6 +7,9 @@ module.exports = {
   },
   theme: {
     extend: {
+      borderWidth: {
+       '1': '1px',
+      },
       borderRadius: {
        'xl': '1rem',
        '2xl': '2.2rem',

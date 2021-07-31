@@ -22,27 +22,27 @@ const IndexPage = ({data: { page, tag, hero }}) => {
           </div>
         </section> */}
 
-        <section className="relative flex flex-wrap w-full md:flex-nowrap">
+        <section className="relative flex flex-wrap w-full md:mb-20 md:flex-nowrap">
           <div className="relative w-full h-full overflow-visible md:w-1/2">
             <div className="absolute w-full h-full rounded-xl image-shadow top-9 left-9 bg-secondary"></div>
             <Img fluid={hero.image.fluid} className="absolute top-0" imgStyle={{ borderRadius: '15px' }} /> 
           </div>
-          <div className="flex flex-wrap items-center content-center justify-center w-full h-full md:w-1/2 md:px-10">
-              <p className="w-full text-2xl text-center uppercase text-primary period font-anton md:text-5xl">{hero.heroText}</p>
-              <p className="w-full text-xl text-center uppercase text-primary period">{hero.heroSubText}</p>
+          <div className="flex flex-wrap items-center content-center justify-center w-full h-full mt-12 mb-12 md:mb-0 md:mt-0 md:w-1/2 md:px-10 md:pl-16">
+              <p className="w-full mb-4 text-2xl text-center uppercase text-primary period font-anton md:text-5xl">{hero.heroText}</p>
+              <p className="w-full mb-4 text-xl text-center uppercase text-primary period">{hero.heroSubText}</p>
               <Link to={hero.recipesLink.slug} className="block clearfix btn-standard" to="index">{hero.recipesLink.name}</Link>
           </div>
         </section>
 
         <section className="w-full main-right">
-          <div className="w-full p-2 bg-gray-200 featured-section md:p-6">
-            <h1 className="w-full text-5xl period">Featured</h1>
+          <div className="w-full p-2 bg-primary rounded-xl featured-section md:p-6">
+            <h1 className="w-full text-5xl text-white period">Featured</h1>
 
-            <div className="flex flex-wrap w-full card-container">
+            <div className="flex w-full overflow-x-auto flex-nowrap card-container">
               {page.edges.map(({ node }, i) => {
                 return (
-                  <div className="w-full pb-4 pr-4 sm:w-1/3" key={i}>
-                    <div className="w-full p-2 text-black bg-white border-2 border-gray-50" key={i} >
+                  <div className="w-full pb-4 pr-4 w-70" key={i}>
+                    <div className="w-full h-full p-2 text-black bg-white border-gray-600 rounded-xl border-1" key={i} >
                       <Card slug={node.slug} name={node.name} image={node.recipePic} time={node.preparationTime} tags={node.tag.title} />
                     </div>
                   </div>

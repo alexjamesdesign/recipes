@@ -32,3 +32,14 @@
     top: 30px;
     left: 30px;
 }
+
+.embla {
+    overflow: hidden;
+}
+.embla__container {
+    display: flex;
+}
+.embla__slide {
+    position: relative;
+    flex: 0 0 100%;
+}

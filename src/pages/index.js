@@ -3,10 +3,14 @@ import Footer from "../components/footer"
 import SEO from "../components/seo"
 import Card from "../components/card"
 import { Link } from "gatsby"
+import { useEmblaCarousel } from "embla-carousel/react"
 import Img from "gatsby-image"
 
 
 const IndexPage = ({data: { page, tag, hero }}) => {
+
+  const [emblaRef] = useEmblaCarousel()
+  
   return (
     <>
 
@@ -36,18 +40,21 @@ const IndexPage = ({data: { page, tag, hero }}) => {
 
         <section className="w-full main-right">
           <div className="w-full p-2 bg-primary rounded-xl featured-section md:p-6">
+            
             <h1 className="w-full text-5xl text-white period">Featured</h1>
 
-            <div className="flex w-full overflow-x-auto flex-nowrap card-container">
-              {page.edges.map(({ node }, i) => {
-                return (
-                  <div className="w-full pb-4 pr-4 w-70" key={i}>
-                    <div className="w-full h-full p-2 text-black bg-white border-gray-600 rounded-xl border-1" key={i} >
-                      <Card slug={node.slug} name={node.name} image={node.recipePic} time={node.preparationTime} tags={node.tag.title} />
+            <div className="embla" ref={emblaRef}>
+              <div className="flex w-full overflow-x-auto flex-nowrap card-container embla__container">
+                {page.edges.map(({ node }, i) => {
+                  return (
+                    <div className="w-1/4 pb-4 pr-4 embla__slide" key={i}>
+                      <div className="h-full p-2 text-black bg-white border-gray-600 rounded-xl border-1" key={i} >
+                        <Card slug={node.slug} name={node.name} image={node.recipePic} time={node.preparationTime} tags={node.tag.title} />
+                      </div>
                     </div>
-                  </div>
-                )
-              })}
+                  )
+                })}
+              </div>
             </div>
 
           </div>

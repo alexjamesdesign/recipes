@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { GoLinkExternal } from 'react-icons/go';
+import { motion } from "framer-motion";
 
 const navItems = [
   {
@@ -29,9 +30,15 @@ const Nav = class extends React.Component {
       <div className={`navigation-wrapper navigation-wrapper--${menuActive} bg-secondary text-black`} >
         <ul className="md:bg-red md:flex md:w-full md:flex-row md:justify-start md:items-stretch">
           {navItems.map(({ title, url}, index) =>
-          <li>
-            <Link key={index} className="px-4 py-2 text-black rounded-2xl navigation-wrapper__link" onClick={this.toggleMenu} activeClassName="is-active bg-tertiary text-white" to={`${url}`}>{title}</Link>
-          </li>
+          
+
+          <motion.li
+            whileHover={{ scale: 1.15 }}
+            whileTap={{ scale: 0.9 }}
+            className="px-4 py-2 mr-4 navigation-wrapper__link rounded-2xl bg-tertiary"
+          >
+            <Link key={index} activeClassName="is-active font-bold" onClick={this.toggleMenu} to={`${url}`}>{title}</Link>
+          </motion.li>
         )}
         </ul>
       </div>

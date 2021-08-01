@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react";
 import Footer from "../components/footer"
 import SEO from "../components/seo"
 import Card from "../components/card"
@@ -9,22 +9,21 @@ import Img from "gatsby-image"
 
 const IndexPage = ({data: { page, tag, hero }}) => {
 
-  const [emblaRef] = useEmblaCarousel()
+  const [viewportRef, embla] = useEmblaCarousel({
+    inViewThreshold: 0.65,
+    loop: true,
+    align: "start",
+  }); 
+
+  useEffect(() => {
+      if (!embla) return;
+  }, [embla]);
   
   return (
     <>
 
       <SEO title="Home" />
       <section className="container flex-wrap md:flex md:space-y-4">
-
-        {/* <section className="relative w-full bg-gray-200 hero">
-          <Img fluid={hero.image.fluid} className="absolute top-0" /> 
-          <div className="absolute top-0 left-0 w-full h-full">
-            <div className="flex items-center justify-end w-full h-full">
-              <p className="w-full text-4xl text-black period font-anton md:text-5xl md:w-1/2">{hero.heroText}</p>
-            </div>
-          </div>
-        </section> */}
 
         <section className="relative flex flex-wrap w-full md:mb-20 md:flex-nowrap">
           <div className="relative w-full h-full overflow-visible md:w-1/2">
@@ -34,27 +33,30 @@ const IndexPage = ({data: { page, tag, hero }}) => {
           <div className="flex flex-wrap items-center content-center justify-center w-full h-full mt-12 mb-12 md:mb-0 md:mt-0 md:w-1/2 md:px-10 md:pl-16">
               <p className="w-full mb-4 text-2xl text-center uppercase text-primary period font-anton md:text-5xl">{hero.heroText}</p>
               <p className="w-full mb-4 text-xl text-center uppercase text-primary period">{hero.heroSubText}</p>
-              <Link to={hero.recipesLink.slug} className="block clearfix btn-standard" to="index">{hero.recipesLink.name}</Link>
+              <Link to={`/recipes/${hero.recipesLink.slug}`} className="block clearfix btn-standard">{hero.recipesLink.name}</Link>
           </div>
         </section>
 
         <section className="w-full main-right">
-          <div className="w-full p-2 bg-primary rounded-xl featured-section md:p-6">
+          <div className="w-full p-4 bg-primary rounded-xl featured-section">
             
-            <h1 className="w-full text-5xl text-white period">Featured</h1>
+            <h1 className="w-full px-2 text-5xl text-white md:p-6 period">Featured</h1>
 
-            <div className="embla" ref={emblaRef}>
-              <div className="flex w-full overflow-x-auto flex-nowrap card-container embla__container">
-                {page.edges.map(({ node }, i) => {
-                  return (
-                    <div className="w-1/4 pb-4 pr-4 embla__slide" key={i}>
-                      <div className="h-full p-2 text-black bg-white border-gray-600 rounded-xl border-1" key={i} >
-                        <Card slug={node.slug} name={node.name} image={node.recipePic} time={node.preparationTime} tags={node.tag.title} />
-                      </div>
-                    </div>
-                  )
-                })}
+            <div className="embla">
+              <div className="w-full overflow-x-auto embla__viewport" ref={viewportRef}>
+                <div className="embla__container md:ml-6 md:mb-6">
+                  {page.edges.map(({ node }, i) => {
+                    return (
+                      
+                        <div className="w-1/4 h-full p-2 text-black bg-white border-gray-600 embla__slide rounded-xl border-1"  key={i} >
+                          <Card slug={node.slug} name={node.name} image={node.recipePic} time={node.preparationTime} tags={node.tag.title} />
+                        </div>
+                      
+                    )
+                  })}
+                </div>
               </div>
+              
             </div>
 
           </div>

@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import Nav from '../components/nav'
+import { motion } from "framer-motion"
 import { CgBowl } from "@react-icons/all-files/cg/CgBowl";
 
 
@@ -18,7 +19,14 @@ const Header = ({ siteTitle }) => (
             <Nav className="block pb-3 text-white" />
           </div>
 
-          <div className="hero-logo"></div>
+          <Link to="/">
+            
+            <motion.div
+              className="hero-logo"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.9 }}
+            />
+          </Link>
           <div className="hero-right"></div>
 
         </div>

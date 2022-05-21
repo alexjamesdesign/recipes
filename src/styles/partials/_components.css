@@ -17,7 +17,7 @@
 }
 
 .ingredients li {
-    @apply pb-4;
+    @apply pb-6;
     @apply text-white;
     @apply font-bold;
 }

@@ -7,7 +7,6 @@ a {
 	@apply transition duration-300;
 }
 
-
 [class*='transition'] {
 	@apply duration-300;
 }
@@ -46,4 +45,40 @@ a.btn-standard {
 
 .hero-right {
 	border-radius: 0px 33px 33px 0px;
+}
+
+/* purgecss ignore */
+[data-sal|='fade'] {
+	transition: all ease 1500ms !important;
+	transform: translateY(20px);
+}
+
+/* purgecss ignore */
+[data-sal|='fade'].sal-animate,
+	body.sal-disabled [data-sal|='fade'] {
+	transform: translateY(0px);
+}
+
+/* purgecss ignore */
+[data-sal|='fade-slow'] {
+	transition: all ease 3000ms !important;
+	transform: translateY(20px);
+}
+
+/* purgecss ignore */
+[data-sal|='fade-slow'].sal-animate,
+	body.sal-disabled [data-sal|='fade-slow'] {
+	transform: translateY(0px);
+}
+
+
+
+.sticky-ingredients-btn {
+	bottom: 20px;
+	@apply sticky ;
+}
+
+
+@screen md {
+	.sticky-ingredients-btn { @apply hidden; }
 }

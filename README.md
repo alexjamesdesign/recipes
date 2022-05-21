@@ -1,11 +1,6 @@
-# Recipes Project
-Project using Gatsby + DatoCMS, Tailwind and Framer Motion to build a database of food recipes which I can add to.
-http://recipes.alexjamesdesign.co.uk/
-
-
-
-
-# Gatsby x Tailwind x Framer Motion Boilerplate
+<h1 align="center">
+  Gatsby x Tailwind x Framer Motion Boilerplate
+</h1>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7e52dbac-aec4-4a56-864f-e33649fadc9b/deploy-status)](https://app.netlify.com/sites/gatsby-tailwind-motion/deploys)
 

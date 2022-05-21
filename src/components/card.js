@@ -8,7 +8,7 @@ import { FaArrowAltCircleRight } from "@react-icons/all-files/fa/FaArrowAltCircl
 
 
 const Card = ({ name, tags, image, time, slug}) => (
-  <Link to={`recipes/${slug}`}>
+  <Link to={`${slug}`}>
     <div>
           { image && ( 
           <Img fluid={image.fluid} className="w-full" alt={image.alt} className="rounded-xl" />

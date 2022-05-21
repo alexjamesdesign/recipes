@@ -49,7 +49,7 @@ const IndexPage = ({data: { page, tag, hero }}) => {
                     return (
                       
                         <div className="w-1/4 h-full p-2 text-black bg-white border-gray-600 embla__slide rounded-xl border-1"  key={i} >
-                          <Card slug={node.slug} name={node.name} image={node.recipePic} time={node.preparationTime} tags={node.tag.title} />
+                          <Card slug={`recipes/${node.slug}`} name={node.name} image={node.recipePic} time={node.preparationTime} tags={node.tag.title} />
                         </div>
                       
                     )

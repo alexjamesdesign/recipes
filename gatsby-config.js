@@ -16,14 +16,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-postcss`,
-    { 
-      resolve: `gatsby-plugin-purgecss`,
-      options: {
-        printRejected: true,
-        tailwind: true, 
-        whitelistPatterns: [/is-active/, /react-datepicker/, /sal/],
-      }
-    },
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-scroll-reveal`,

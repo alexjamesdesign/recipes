@@ -13,7 +13,6 @@
     "gatsby-plugin-manifest": "^2.2.41",
     "gatsby-plugin-offline": "^3.0.34",
     "gatsby-plugin-postcss": "^2.1.20",
-    "gatsby-plugin-purgecss": "^6.1.2",
     "gatsby-plugin-react-helmet": "^3.1.22",
     "gatsby-plugin-scroll-reveal": "^0.0.7",
     "gatsby-plugin-sharp": "^2.4.5",

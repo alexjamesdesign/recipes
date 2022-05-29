@@ -15,7 +15,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-plugin-anchor-links`,
     `gatsby-plugin-postcss`,
     `gatsby-transformer-sharp`,
     {
@@ -37,6 +36,7 @@ module.exports = {
         icon: `src/images/favicon.png`,
       },
     },
+    `gatsby-plugin-no-index`,
     {
       resolve: `gatsby-source-datocms`,
       options: {
@@ -45,6 +45,5 @@ module.exports = {
         apiToken: `${process.env.DATOAPIKEY}`,
       },
     },
-    `gatsby-plugin-no-index`,
   ],
 }

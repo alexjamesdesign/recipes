@@ -27,7 +27,7 @@ export const itemIn = {
 
 
 const Tags = ({ tagItems }) => (
-  <Link to={`recipes/${tagItems.slug}`}>
+  <div>
     <h1 className="w-full text-5xl period text-primary">Tags</h1>
     
     <motion.div 
@@ -54,7 +54,7 @@ const Tags = ({ tagItems }) => (
         )
       })}
     </motion.div>
-  </Link>
+  </div>
     
   )
   

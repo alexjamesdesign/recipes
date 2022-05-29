@@ -75,9 +75,12 @@ a.btn-standard {
 
 .sticky-ingredients-btn {
 	bottom: 20px;
-	@apply sticky ;
+	@apply sticky;
+	background-image: url("../images/logo-round.svg");
+	background-repeat: no-repeat;
+	background-size: 15px 15px;
+	background-position: left 5px;
 }
-
 
 @screen md {
 	.sticky-ingredients-btn { @apply hidden; }

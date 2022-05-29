@@ -3,6 +3,7 @@ import Footer from "../components/footer"
 import SEO from "../components/seo"
 import Img from "gatsby-image"
 import { motion } from 'framer-motion'
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 import { CgTime } from "@react-icons/all-files/cg/CgTime";
 import { CgTag } from "@react-icons/all-files/cg/CgTag";
 
@@ -10,6 +11,9 @@ import { CgTag } from "@react-icons/all-files/cg/CgTag";
 // for (let i = 0; i < storage.length; i++) {
 //   if (storage[i].status === '0') counter++;
 // }
+
+const currentURL = window.location.pathname;
+var scrollLink = `${currentURL}#ingredients`;
 
 const recipeTemplate = ({data: { recipe, tag }}) => {
   return (
@@ -151,7 +155,10 @@ const recipeTemplate = ({data: { recipe, tag }}) => {
                       data-sal="fade-slow" data-sal-delay="700" data-sal-easing="ease" 
                       className="sticky bottom-0 flex flex-col items-end"
                     >
-                      <a href="#ingredients" className="px-6 py-4 mb-2 mr-2 text-center text-white rounded-2xl bg-tertiary">Ingredients</a>
+                      <AnchorLink to={scrollLink} className="px-6 py-4 mb-2 mr-2 text-center text-white rounded-2xl bg-tertiary" title="Ingredients">
+                        Ingredients
+                      </AnchorLink>
+                      {/* <a href="#ingredients" className="px-6 py-4 mb-2 mr-2 text-center text-white rounded-2xl bg-tertiary">Ingredients</a> */}
                     </div>
 
                 </motion.div>

@@ -15,6 +15,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-plugin-anchor-links`,
     `gatsby-plugin-postcss`,
     `gatsby-transformer-sharp`,
     {
@@ -44,5 +45,6 @@ module.exports = {
         apiToken: `${process.env.DATOAPIKEY}`,
       },
     },
+    `gatsby-plugin-no-index`,
   ],
 }

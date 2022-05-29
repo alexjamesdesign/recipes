@@ -48,7 +48,7 @@ const tagsTemplate = ({data: { recipe, tag }, item, container}) => {
         <section className="main-right md:w-2/3">
           <div className="w-full p-2 bg-primary featured-section rounded-xl md:p-6">
 
-          {recipe.edges.map(({ node }, i) => {
+          {recipe.edges.slice(0, 1).map(({ node }, i) => {
             return (
               <h1 className="w-full text-5xl text-white period">{node.tag.title} Recipes</h1>
             )
@@ -68,7 +68,7 @@ const tagsTemplate = ({data: { recipe, tag }, item, container}) => {
                     variants={itemIn}
                   >
                     <div className="w-full p-2 text-black bg-white border-2 rounded-xl border-gray-50" key={i} >
-                      <Card slug={node.slug} name={node.name} image={node.recipePic} time={node.preparationTime} tags={node.tag.title} />
+                      <Card slug={/recipes/`{node.slug}`} name={node.name} image={node.recipePic} time={node.preparationTime} tags={node.tag.title} />
                     </div>
                   </motion.div>
                 )

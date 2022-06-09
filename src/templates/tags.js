@@ -29,6 +29,8 @@ export const itemIn = {
   transition: { duration: 1.3 }
 }
 
+const linkBase = "recipes/"
+
 const tagsTemplate = ({data: { recipe, tag }, item, container}) => {
   return (
     <>
@@ -68,7 +70,7 @@ const tagsTemplate = ({data: { recipe, tag }, item, container}) => {
                     variants={itemIn}
                   >
                     <div className="w-full p-2 text-black bg-white border-2 rounded-xl border-gray-50" key={i} >
-                      <Card slug={/recipes/`{node.slug}`} name={node.name} image={node.recipePic} time={node.preparationTime} tags={node.tag.title} />
+                      <Card slug={`../../recipes/${node.slug}`} name={node.name} image={node.recipePic} time={node.preparationTime} tags={node.tag.title} />
                     </div>
                   </motion.div>
                 )

@@ -1,4 +1,5 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import Footer from "../components/footer"
 import SEO from "../components/seo"
 import Img from "gatsby-image"
@@ -12,10 +13,11 @@ import { CgTag } from "@react-icons/all-files/cg/CgTag";
 //   if (storage[i].status === '0') counter++;
 // }
 
-const currentURL = window.location.pathname;
-var scrollLink = `${currentURL}#ingredients`;
 
-const recipeTemplate = ({data: { recipe, tag }}) => {
+// var scrollLink = `${site.siteMetadata.siteUrl}#ingredients`;
+
+
+const recipeTemplate = ({data: { recipe, tag, site }}) => {
   return (
     <>
 
@@ -24,7 +26,7 @@ const recipeTemplate = ({data: { recipe, tag }}) => {
 
         <section className="w-full sidebar md:w-1/3">
 
-            <h1 className="w-full text-5xl text-primary period md:hidden">{recipe.name}</h1>
+            <h1 className="w-full text-5xl text-primary period md:hidden">{recipe.name} {site.siteMetadata.siteUrl}</h1>
 
             <div className="recipe-pics md:hidden">
                   { recipe.recipePic && ( 
@@ -155,9 +157,9 @@ const recipeTemplate = ({data: { recipe, tag }}) => {
                       data-sal="fade-slow" data-sal-delay="700" data-sal-easing="ease" 
                       className="sticky bottom-0 flex flex-col items-end"
                     >
-                      <AnchorLink to={scrollLink} className="px-6 py-4 mb-2 mr-2 text-center text-white rounded-2xl bg-tertiary" title="Ingredients">
+                      {/* <AnchorLink to={scrollLink} className="px-6 py-4 mb-2 mr-2 text-center text-white rounded-2xl bg-tertiary" title="Ingredients">
                         Ingredients
-                      </AnchorLink>
+                      </AnchorLink> */}
                       {/* <a href="#ingredients" className="px-6 py-4 mb-2 mr-2 text-center text-white rounded-2xl bg-tertiary">Ingredients</a> */}
                     </div>
 
@@ -177,7 +179,13 @@ const recipeTemplate = ({data: { recipe, tag }}) => {
 export default recipeTemplate
 
 export const query = graphql`
+
 query RecipeTemplateQuery($slug: String!) {
+  site {
+    siteMetadata {
+      siteUrl
+    }
+  },
   recipe: datoCmsRecipe(slug: {eq: $slug}) {
     name
     slug

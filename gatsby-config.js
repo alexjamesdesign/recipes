@@ -5,6 +5,7 @@ module.exports = {
     title: `Recipes.`,
     description: `A hobby project for personal use`,
     author: `@alexjamesdesign`,
+    siteUrl: `https://recipes.alexjamesdesign.co.uk`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
